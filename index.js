@@ -77,7 +77,7 @@ db.exists = function(id, key, cb) {
 
 function getBucket(id, cb, create) {
   var bucket = buckets[id];
-  if (create) bucket = buckets[id] = {};
+  if (create && !bucket) bucket = buckets[id] = {};
   cb(bucket || {});
 }
 
